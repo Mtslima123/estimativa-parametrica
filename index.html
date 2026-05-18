@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Estimativa Paramétrica</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F3864'/%3E%3Crect y='28' width='32' height='4' fill='%23f59e0b'/%3E%3C/svg%3E" />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estimativa Paramétrica</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.23.10/babel.min.js"></script>
+  <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+  <script src="https://unpkg.com/lucide-react@0.383.0/dist/umd/lucide-react.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; background: #F6F6F3; }
+    #root { min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    // Shims para compatibilidade CDN
+    window.React = React;
+    window.ReactDOM = ReactDOM;
+    // Recharts já expõe window.Recharts
+    // Lucide expõe window.LucideReact
+  </script>
+  <script type="text/babel" data-presets="react" src="./estimativa_app.jsx"></script>
+  <script>
+    // Renderiza após o Babel compilar
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(EstimativaApp));
+      }, 100);
+    });
+  </script>
+</body>
 </html>
