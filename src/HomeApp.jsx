@@ -471,30 +471,41 @@ function HomeView({ authUser, onSelectModulo, onLogout }) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// ESTIMATIVA WRAPPER — botao voltar flutuante sem tocar no app original
+// ESTIMATIVA WRAPPER — botao voltar no canto inferior direito, sem interferir
 // ═══════════════════════════════════════════════════════════════════════════
 function EstimativaWrapper({ onVoltar }) {
   return (
-    <div style={{ position:'relative' }}>
-      <button onClick={onVoltar}
-        style={{
-          position:'fixed', top:10, left:62, zIndex:9999,
-          display:'flex', alignItems:'center', gap:5,
-          fontSize:11, fontWeight:500,
-          color:'rgba(255,255,255,0.55)',
-          background:'rgba(13,30,53,0.85)',
-          border:'1px solid rgba(46,111,173,0.35)',
-          borderRadius:3, padding:'5px 11px',
-          cursor:'pointer',
-          fontFamily:'"IBM Plex Sans",sans-serif',
-          backdropFilter:'blur(4px)',
-          transition:'color .15s, border-color .15s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='rgba(46,111,173,0.7)'; }}
-        onMouseLeave={e => { e.currentTarget.style.color='rgba(255,255,255,0.55)'; e.currentTarget.style.borderColor='rgba(46,111,173,0.35)'; }}>
-        &#8592; Inicio
-      </button>
+    <div>
       <EstimativaApp />
+      <button
+        onClick={onVoltar}
+        title="Voltar ao Inicio"
+        style={{
+          position: 'fixed',
+          bottom: 24,
+          right: 24,
+          zIndex: 9999,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
+          fontSize: 11,
+          fontWeight: 600,
+          color: '#fff',
+          background: '#0d1e35',
+          border: '1px solid rgba(46,111,173,0.5)',
+          borderRadius: 4,
+          padding: '8px 14px',
+          cursor: 'pointer',
+          fontFamily: '"IBM Plex Sans",sans-serif',
+          boxShadow: '0 4px 16px rgba(13,30,53,0.35)',
+          letterSpacing: '0.02em',
+          transition: 'background .15s, box-shadow .15s',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.background = '#2e6fad'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(46,111,173,0.4)'; }}
+        onMouseLeave={e => { e.currentTarget.style.background = '#0d1e35'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(13,30,53,0.35)'; }}
+      >
+        <Home style={{ width: 13, height: 13 }} /> Inicio
+      </button>
     </div>
   );
 }
