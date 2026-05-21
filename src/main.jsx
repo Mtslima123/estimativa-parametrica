@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import HomeApp from './HomeApp.jsx'
+import EstimativaApp from './estimativa_app.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HomeApp />
+    <EstimativaApp />
   </React.StrictMode>
 )
